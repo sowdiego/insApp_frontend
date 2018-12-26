@@ -1,0 +1,114 @@
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+</nav>
+
+<div class="row">
+  <div class="col s12">
+      <div class="bg-dark" >
+          <div class="card-header"><h4>EDACY CRUD OPERATION MEAN FROM MAMADOU SOW</h4></div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col s8">
+                    <table class="striped">
+                      <thead>
+                        <tr>
+                            <th>NOM</th>
+                            <th>PRENOM</th>
+                            <th>ADRESSE</th>
+                            <th>TELEPHONE</th>
+                            <th>EMAIL</th>
+                            <th>ECOLE</th>
+                            <th></th>
+                        </tr>
+                      </thead>
+                      <tr *ngFor = "let ins of inscriptionService.inscriptions">
+                        <td>{{ins.nom}}</td>
+                        <td>{{ins.prenom}}</td>
+                        <td>{{ins.adresse}}</td>
+                        <td>{{ins.telephone}}</td>
+                        <td>{{ins.email}}</td>
+                        <td>{{ins.ecole}}</td>
+                        <td>
+                          <a class="material-icons" (click)="OnEdit(ins)">
+                            <span class="action-btn">edit</span>
+                          </a>
+                          <a class="material-icons" (click)="OnDelete(ins._id,inscriptionForm)">
+                            <span class="action-btn">delete</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+              <div class="col s4">
+                  <form #inscriptionForm="ngForm" (ngSubmit)="OnSubmit(inscriptionForm)">
+                      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription._id ">
+                      <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="nom" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription.nom " placeholder="votre nom">
+                            <label for="">Nom:
+                              <label class="red-text"></label>
+                            </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s12">
+                              <input type="text" name="prenom" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription.prenom " placeholder="votre prenom" required>
+                              <label for="">Prenom:
+                                <label class="red-text"></label>
+                              </label>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="adresse" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription.adresse " placeholder="votre adresse">
+                                <label for="">Adresse:
+                                  <label class="red-text"></label>
+                                </label>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="input-field col s12">
+                                  <input type="text" name="telephone" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription.telephone " placeholder="votre numero de telephone">
+                                  <label for="">Telephone:
+                                    <label class="red-text"></label>
+                                  </label>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" name="email" #_id="ngModel" [(ngModel)]="inscriptionService.selectedInscription.email " placeholder="votre adresse email">
+                                    <label for="">Email:
+                                      <label class="red-text"></label>
+                                    </label>
+                                </div>
+                              </div>
+                              <div class="row">   
+                                  <label class="input-field col s12">Ecole :</label>                              
+                                  <div class="input-field col s12">
+                                      <select class="browser-default" id="ecole"  name="ecole" [(ngModel)]="departement" placeholder="choisissez votre ecole" >
+                                        <option  *ngFor="let ecole of ecoles" [ngValue]="ecole.nom" >{{ecole.nom}}</option>
+                                        
+                                      </select>
+                                  </div>
+                              </div>
+                             
+                              <div class="row">
+                                  <div class="input-field col s12">
+                                      <button class="btn waves-effect waves-light" type="button" (click)="resetForm(inscriptionForm)">Annuler</button>
+                                      <!-- <button class="waves-effect waves-light btn" type="submit">Valider</button> -->
+                                      <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                          <i class="material-icons right">send</i>
+                                        </button>
+                                              
+                                  </div>
+                                </div>
+                      </form>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+  </div>
+</div>
+
