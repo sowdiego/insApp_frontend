@@ -14,7 +14,7 @@ import { Inscription } from "./inscription.model";
 export class InscriptionService {
   selectedInscription:Inscription;
   inscriptions:Inscription[];
-  readonly urlApi = 'http://insappsow.herokuapp.com/inscriptions';
+  readonly urlApi = 'http://localhost:3000/inscriptions';
   constructor(private http:HttpClient) { }
 
   postInscription(ins:Inscription){
