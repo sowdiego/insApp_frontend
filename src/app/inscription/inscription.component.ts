@@ -20,7 +20,7 @@ export class InscriptionComponent implements OnInit {
     {id:1, nom:'ISM'}
   ];
 
-  constructor(private inscriptionService:InscriptionService) { }
+  constructor(public inscriptionService:InscriptionService) { }
 
   ngOnInit() {
     this.resetForm();
