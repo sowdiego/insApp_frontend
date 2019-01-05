@@ -85,7 +85,7 @@
                               <div class="row">   
                                   <label class="input-field col s12">Ecole :</label>                              
                                   <div class="input-field col s12">
-                                      <select class="browser-default" id="ecole"  name="ecole" [(ngModel)]="departement" placeholder="choisissez votre ecole" >
+                                      <select class="browser-default" id="ecole"  name="ecole" [(ngModel)]="ecole" placeholder="choisissez votre ecole" >
                                         <option  *ngFor="let ecole of ecoles" [ngValue]="ecole.nom" >{{ecole.nom}}</option>
                                         
                                       </select>
